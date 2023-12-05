@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+	
+	<!-- This is equivalent to doing Tomato tomato = new Tomato(); -->
+	<bean id = "redtomato" class="com.example.demo.Tomato">
+		<property name="color" value="red"></property>
+		<property name="description" value="fruit or vegetable"></property>
+		<property name="price" value="50"></property>
+	</bean>
+	
+	<bean id="greentomato" class="com.example.demo.Tomato">
+		<constructor-arg value="green"/>
+		<constructor-arg value="100"/>
+		<constructor-arg value="Good for health"/>
+	</bean>
+	
+	<!-- Dependency injection by injecting one bean into another -->
+	<bean id="tombasket" class="com.example.demo.Basket">
+		<property name="bid" value="1"></property>
+		<property name="brand" value="dokro"></property>
+		<property name="description" value="authentic basket"></property>
+		<property name="tomato" ref="redtomato"></property>
+	</bean>
+	
+</beans>
